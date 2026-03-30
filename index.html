@@ -11,11 +11,7 @@
       theme: {
         extend: {
           colors: {
-            wm: {
-              dark: '#0a0e1a',
-              gray: '#30302E',
-              accent: '#689eca',
-            }
+            wm: { dark: '#0a0e1a', gray: '#30302E', accent: '#689eca', bg: '#E8E6E3' }
           },
           fontFamily: {
             sans: ['DM Sans', 'sans-serif'],
@@ -25,188 +21,273 @@
       }
     }
   </script>
+  <style>
+    nav, section, div.border-b, footer { position: relative; z-index: 1; }
+  </style>
 </head>
-<body class="bg-white text-gray-900 font-sans leading-snug">
+<body class="bg-wm-bg text-gray-900 font-sans leading-snug">
+
+<canvas id="neural-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.45;"></canvas>
 
   <!-- Nav -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-wm-gray/95 backdrop-blur-md border-b border-white/[0.08]">
-    <div class="max-w-7xl mx-auto px-6 py-4 md:px-10 md:py-7 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 text-white font-medium tracking-tight font-serif">
-        <img src="whitemattersystems.svg" alt="White Matter Systems" class="h-10 md:h-16 w-auto">
-        <span class="text-xl md:text-4xl">White Matter Systems</span>
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-4 md:py-5 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 text-white font-medium font-serif">
+        <img src="whitemattersystems.svg" alt="White Matter Systems" class="h-10 w-auto">
+        <span class="text-xl md:text-2xl">White Matter Systems</span>
       </a>
-      <a href="#contact" class="bg-wm-accent text-wm-dark font-semibold text-sm md:text-xl px-4 py-2 md:px-8 md:py-3.5 rounded-md hover:opacity-85 transition-opacity font-serif whitespace-nowrap">
-        Get in touch
-      </a>
+      <ul class="hidden md:flex gap-8 list-none">
+        <li><a href="#services" class="text-white/60 text-sm hover:text-white transition-colors">Services</a></li>
+        <li><a href="#integrations" class="text-white/60 text-sm hover:text-white transition-colors">Integrations</a></li>
+        <li><a href="#process" class="text-white/60 text-sm hover:text-white transition-colors">Process</a></li>
+      </ul>
+      <a href="#contact" class="bg-wm-accent text-wm-dark font-semibold font-serif text-sm md:text-base px-5 py-2.5 rounded-md hover:opacity-85 transition-opacity">Get in touch</a>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="min-h-screen flex items-center border-b border-black/[0.08]">
-    <div class="max-w-5xl mx-auto px-8 py-32 grid md:grid-cols-2 gap-16 items-center w-full">
-      <div>
-        <p class="text-wm-accent font-semibold text-base tracking-widest uppercase mb-6">Systems Consulting</p>
-        <h1 class="text-6xl font-semibold tracking-tight leading-tight mb-8 font-serif">
-          Clarity in<br>complex systems.
-        </h1>
-        <p class="text-gray-500 text-xl leading-relaxed mb-12">
-          We design, build, and connect the systems your business runs on — from architecture to automation, with the depth to own it long-term.
-        </p>
-        <a href="#contact" class="inline-block bg-wm-accent text-wm-dark font-semibold text-lg px-8 py-4 rounded-md hover:opacity-85 transition-opacity font-serif">Get in touch</a>
+  <section class="min-h-screen flex items-center pt-24 pb-16 border-b border-black/[0.08]">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 w-full">
+      <p class="text-wm-accent font-semibold text-xs tracking-widest uppercase mb-6">Systems Consulting</p>
+      <h1 class="font-serif font-semibold text-5xl md:text-7xl tracking-tight leading-tight mb-8 max-w-3xl">
+        Deep ownership for systems that can't fail.
+      </h1>
+      <p class="text-gray-500 text-lg md:text-xl max-w-xl mb-10">
+        We design, build, and connect the systems your business runs on — from architecture to automation, with the depth to own it long-term.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#contact" class="bg-wm-accent text-wm-dark font-semibold font-serif px-8 py-4 rounded-md hover:opacity-85 transition-opacity">Start a project</a>
+        <a href="#services" class="border border-gray-200 text-gray-600 font-semibold font-serif px-8 py-4 rounded-md hover:border-gray-400 hover:text-gray-900 transition-colors">Explore services</a>
       </div>
-      <div class="hidden md:grid grid-cols-2 gap-5">
-        <div class="bg-wm-gray/5 border border-black/[0.08] rounded-xl p-8">
-          <p class="text-3xl font-semibold tracking-tight mb-2 font-serif">Embedded</p>
+    </div>
+  </section>
+
+  <!-- Stats band -->
+  <div class="border-b border-black/[0.08]">
+    <div class="max-w-6xl mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-black/[0.08]">
+        <div class="px-6 md:px-10 py-10">
+          <p class="font-serif font-semibold text-2xl mb-1">Embedded</p>
           <p class="text-gray-500 text-sm">Not advisory-at-a-distance</p>
         </div>
-        <div class="bg-wm-gray/5 border border-black/[0.08] rounded-xl p-8">
-          <p class="text-3xl font-semibold tracking-tight mb-2 font-serif">50<span class="text-wm-accent">+</span></p>
+        <div class="px-6 md:px-10 py-10">
+          <p class="font-serif font-semibold text-2xl mb-1">50<span class="text-wm-accent">+</span></p>
           <p class="text-gray-500 text-sm">Integrations supported</p>
         </div>
-        <div class="bg-wm-gray/5 border border-black/[0.08] rounded-xl p-8">
-          <p class="text-3xl font-semibold tracking-tight mb-2 font-serif">AI-Ready</p>
+        <div class="px-6 md:px-10 py-10">
+          <p class="font-serif font-semibold text-2xl mb-1">AI-Ready</p>
           <p class="text-gray-500 text-sm">Automation & intelligence built in</p>
         </div>
-        <div class="bg-wm-gray/5 border border-black/[0.08] rounded-xl p-8">
-          <p class="text-3xl font-semibold tracking-tight mb-2 font-serif">Full-Stack</p>
+        <div class="px-6 md:px-10 py-10">
+          <p class="font-serif font-semibold text-2xl mb-1">Full-Stack</p>
           <p class="text-gray-500 text-sm">Architecture to support</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- What we do -->
-  <section class="border-t border-black/[0.08] bg-gray-50">
-    <div class="max-w-5xl mx-auto px-8 py-28">
-      <p class="text-wm-accent font-semibold text-sm tracking-widest uppercase mb-4">What we do</p>
-      <h2 class="text-4xl font-semibold tracking-tight mb-16 max-w-xl font-serif">We work on the hard problems others avoid.</h2>
-      <div class="grid md:grid-cols-3 gap-10">
-        <div>
-          <div class="w-10 h-10 rounded-md bg-wm-gray/40 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/></svg>
-          </div>
-          <p class="text-xs font-semibold tracking-widest uppercase text-wm-accent mb-2">01</p>
-          <h3 class="text-lg font-semibold mb-2 font-serif">Systems Architecture & Build</h3>
-          <p class="text-gray-500 leading-relaxed">Custom application and system design tailored to your processes — from simple trackers to complex relational architectures.</p>
+  <!-- Services -->
+  <section id="services" class="bg-gray-50 border-b border-black/[0.08]">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-24">
+      <p class="text-wm-accent font-semibold text-xs tracking-widest uppercase mb-4">What we do</p>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <h2 class="font-serif font-semibold text-4xl md:text-5xl tracking-tight max-w-md">Every solution, under one roof.</h2>
+        <p class="text-gray-500 text-sm max-w-xs">From initial architecture to AI-powered workflows — complete systems expertise so your operations don't just work, they scale.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-px bg-black/[0.06]">
+        <div class="bg-gray-50 p-10 hover:bg-white transition-colors">
+          <p class="text-wm-accent text-xs font-semibold tracking-widest uppercase mb-4">01</p>
+          <h3 class="font-serif font-semibold text-lg mb-3">Systems Architecture & Build</h3>
+          <p class="text-gray-500 text-sm">Custom application and system design tailored to your processes — from simple trackers to complex relational architectures.</p>
         </div>
-        <div>
-          <div class="w-10 h-10 rounded-md bg-wm-gray/40 flex items-center justify-center mb-5">
-            <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          </div>
-          <p class="text-xs font-semibold tracking-widest uppercase text-wm-accent mb-2">02</p>
-          <h3 class="text-lg font-semibold mb-2 font-serif">Integrations & API Development</h3>
-          <p class="text-gray-500 leading-relaxed">Connect your entire stack with seamless bi-directional data flow via native connectors, custom APIs, and automation pipelines.</p>
+        <div class="bg-gray-50 p-10 hover:bg-white transition-colors">
+          <p class="text-wm-accent text-xs font-semibold tracking-widest uppercase mb-4">02</p>
+          <h3 class="font-serif font-semibold text-lg mb-3">Integrations & API Development</h3>
+          <p class="text-gray-500 text-sm">Connect your entire stack with seamless bi-directional data flow via native connectors, custom APIs, and automation pipelines.</p>
         </div>
-        <div>
-          <div class="w-10 h-10 rounded-md bg-wm-gray/40 flex items-center justify-center mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="size-6">
-              <path fill-rule="evenodd" d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z" clip-rule="evenodd" />
-            </svg>
-          </div>
-          <p class="text-xs font-semibold tracking-widest uppercase text-wm-accent mb-2">03</p>
-          <h3 class="text-lg font-semibold mb-2 font-serif">AI & Automation</h3>
-          <p class="text-gray-500 leading-relaxed">Embed intelligence into your workflows — automated routing, predictive logic, and LLM-powered processes that scale with your operation.</p>
+        <div class="bg-gray-50 p-10 hover:bg-white transition-colors">
+          <p class="text-wm-accent text-xs font-semibold tracking-widest uppercase mb-4">03</p>
+          <h3 class="font-serif font-semibold text-lg mb-3">AI & Automation</h3>
+          <p class="text-gray-500 text-sm">Embed intelligence into your workflows — automated routing, predictive logic, and LLM-powered processes that scale with your operation.</p>
         </div>
-        <div>
-          <div class="w-10 h-10 rounded-md bg-wm-gray/40 flex items-center justify-center mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="size-6">
-              <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z" />
-            </svg>
-          </div>
-          <p class="text-xs font-semibold tracking-widest uppercase text-wm-accent mb-2">04</p>
-          <h3 class="text-lg font-semibold mb-2 font-serif">Dashboards & Reporting</h3>
-          <p class="text-gray-500 leading-relaxed">Turn raw data into executive-ready dashboards, KPI trackers, and automated reports your team actually uses.</p>
+        <div class="bg-gray-50 p-10 hover:bg-white transition-colors">
+          <p class="text-wm-accent text-xs font-semibold tracking-widest uppercase mb-4">04</p>
+          <h3 class="font-serif font-semibold text-lg mb-3">Dashboards & Reporting</h3>
+          <p class="text-gray-500 text-sm">Turn raw data into executive-ready dashboards, KPI trackers, and automated reports your team actually uses.</p>
         </div>
-        <div>
-          <div class="w-10 h-10 rounded-md bg-wm-gray/40 flex items-center justify-center mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="size-6">
-              <path fill-rule="evenodd" d="M12 6.75a5.25 5.25 0 0 1 6.775-5.025.75.75 0 0 1 .313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 0 1 1.248.313 5.25 5.25 0 0 1-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 1 1 2.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0 1 12 6.75ZM4.117 19.125a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Z" clip-rule="evenodd" />
-              <path d="m10.076 8.64-2.201-2.2V4.874a.75.75 0 0 0-.364-.643l-3.75-2.25a.75.75 0 0 0-.916.113l-.75.75a.75.75 0 0 0-.113.916l2.25 3.75a.75.75 0 0 0 .643.364h1.564l2.062 2.062 1.575-1.297Z" />
-              <path fill-rule="evenodd" d="m12.556 17.329 4.183 4.182a3.375 3.375 0 0 0 4.773-4.773l-3.306-3.305a6.803 6.803 0 0 1-1.53.043c-.394-.034-.682-.006-.867.042a.589.589 0 0 0-.167.063l-3.086 3.748Zm3.414-1.36a.75.75 0 0 1 1.06 0l1.875 1.876a.75.75 0 1 1-1.06 1.06L15.97 17.03a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-            </svg>
-          </div>
-          <p class="text-xs font-semibold tracking-widest uppercase text-wm-accent mb-2">05</p>
-          <h3 class="text-lg font-semibold mb-2 font-serif">Legacy System Modernization</h3>
-          <p class="text-gray-500 leading-relaxed">Inherited a messy or brittle system? We audit, restructure, and extend existing architectures to restore stability and scale.</p>
+        <div class="bg-gray-50 p-10 hover:bg-white transition-colors">
+          <p class="text-wm-accent text-xs font-semibold tracking-widest uppercase mb-4">05</p>
+          <h3 class="font-serif font-semibold text-lg mb-3">Legacy System Modernization</h3>
+          <p class="text-gray-500 text-sm">Inherited a messy or brittle system? We audit, restructure, and extend existing architectures to restore stability and scale.</p>
         </div>
-        <div>
-          <div class="w-10 h-10 rounded-md bg-wm-gray/40 flex items-center justify-center mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="size-6">
-              <path fill-rule="evenodd" d="M19.449 8.448 16.388 11a4.52 4.52 0 0 1 0 2.002l3.061 2.55a8.275 8.275 0 0 0 0-7.103ZM15.552 19.45 13 16.388a4.52 4.52 0 0 1-2.002 0l-2.55 3.061a8.275 8.275 0 0 0 7.103 0ZM4.55 15.552 7.612 13a4.52 4.52 0 0 1 0-2.002L4.551 8.45a8.275 8.275 0 0 0 0 7.103ZM8.448 4.55 11 7.612a4.52 4.52 0 0 1 2.002 0l2.55-3.061a8.275 8.275 0 0 0-7.103 0Zm8.657-.86a9.776 9.776 0 0 1 1.79 1.415 9.776 9.776 0 0 1 1.414 1.788 9.764 9.764 0 0 1 0 10.211 9.777 9.777 0 0 1-1.415 1.79 9.777 9.777 0 0 1-1.788 1.414 9.764 9.764 0 0 1-10.212 0 9.776 9.776 0 0 1-1.788-1.415 9.776 9.776 0 0 1-1.415-1.788 9.764 9.764 0 0 1 0-10.212 9.774 9.774 0 0 1 1.415-1.788A9.774 9.774 0 0 1 6.894 3.69a9.764 9.764 0 0 1 10.211 0ZM14.121 9.88a2.985 2.985 0 0 0-1.11-.704 3.015 3.015 0 0 0-2.022 0 2.985 2.985 0 0 0-1.11.704c-.326.325-.56.705-.704 1.11a3.015 3.015 0 0 0 0 2.022c.144.405.378.785.704 1.11.325.326.705.56 1.11.704.652.233 1.37.233 2.022 0a2.985 2.985 0 0 0 1.11-.704c.326-.325.56-.705.704-1.11a3.016 3.016 0 0 0 0-2.022 2.985 2.985 0 0 0-.704-1.11Z" clip-rule="evenodd" />
-            </svg>
-          </div>
-          <p class="text-xs font-semibold tracking-widest uppercase text-wm-accent mb-2">06</p>
-          <h3 class="text-lg font-semibold mb-2 font-serif">Ongoing Support & Ownership</h3>
-          <p class="text-gray-500 leading-relaxed">Managed support, knowledge transfer, and strategic guidance — so your systems stay healthy long after launch.</p>
+        <div class="bg-gray-50 p-10 hover:bg-white transition-colors">
+          <p class="text-wm-accent text-xs font-semibold tracking-widest uppercase mb-4">06</p>
+          <h3 class="font-serif font-semibold text-lg mb-3">Ongoing Support & Ownership</h3>
+          <p class="text-gray-500 text-sm">Managed support, knowledge transfer, and strategic guidance — so your systems stay healthy long after launch.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How we work -->
-  <section class="border-t border-black/[0.08]">
-    <div class="max-w-5xl mx-auto px-8 py-28">
-      <p class="text-wm-accent font-semibold text-sm tracking-widest uppercase mb-4">How we work</p>
-      <h2 class="text-4xl font-semibold tracking-tight mb-16 max-w-xl font-serif">Embedded, not consulting-at-a-distance.</h2>
-      <div class="grid md:grid-cols-2 gap-16">
-        <div class="flex flex-col gap-10">
-          <div class="flex gap-5">
-            <span class="text-wm-accent font-semibold text-2xl leading-none mt-1">01</span>
-            <div>
-              <h3 class="font-semibold text-lg mb-2 font-serif">Discovery</h3>
-              <p class="text-gray-500 leading-relaxed">We map your systems, workflows, and pain points to understand what you actually need — not just what you asked for.</p>
-            </div>
+  <!-- Integrations -->
+  <section id="integrations" class="border-b border-black/[0.08]">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-24 grid md:grid-cols-2 gap-16 items-center">
+      <div class="border border-black/[0.08] rounded-xl overflow-hidden">
+        <div class="bg-wm-gray px-6 py-4 flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-green-400"></div>
+          <span class="text-white/50 text-xs">Connected integrations</span>
+        </div>
+        <div class="divide-y divide-black/[0.06]">
+          <div class="flex items-center gap-4 px-6 py-4">
+            <div class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></div>
+            <span class="flex-1 text-sm">Salesforce CRM</span>
+            <span class="text-xs text-green-600 font-medium">Live Sync</span>
           </div>
-          <div class="flex gap-5">
-            <span class="text-wm-accent font-semibold text-2xl leading-none mt-1">02</span>
-            <div>
-              <h3 class="font-semibold text-lg mb-2 font-serif">Architecture</h3>
-              <p class="text-gray-500 leading-relaxed">We design the data model, integration map, and automation logic before building a single thing — so it's right the first time.</p>
-            </div>
+          <div class="flex items-center gap-4 px-6 py-4">
+            <div class="w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></div>
+            <span class="flex-1 text-sm">QuickBooks Online</span>
+            <span class="text-xs text-green-600 font-medium">Live Sync</span>
+          </div>
+          <div class="flex items-center gap-4 px-6 py-4">
+            <div class="w-2 h-2 rounded-full bg-purple-500 flex-shrink-0"></div>
+            <span class="flex-1 text-sm">Slack Notifications</span>
+            <span class="text-xs text-wm-accent font-medium">Active</span>
+          </div>
+          <div class="flex items-center gap-4 px-6 py-4">
+            <div class="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0"></div>
+            <span class="flex-1 text-sm">Microsoft 365</span>
+            <span class="text-xs text-wm-accent font-medium">Active</span>
+          </div>
+          <div class="flex items-center gap-4 px-6 py-4">
+            <div class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></div>
+            <span class="flex-1 text-sm">REST API / Webhooks</span>
+            <span class="text-xs text-gray-400 font-medium">Custom</span>
           </div>
         </div>
-        <div class="flex flex-col gap-10">
-          <div class="flex gap-5">
-            <span class="text-wm-accent font-semibold text-2xl leading-none mt-1">03</span>
-            <div>
-              <h3 class="font-semibold text-lg mb-2 font-serif">Build & Integrate</h3>
-              <p class="text-gray-500 leading-relaxed">Agile delivery with regular check-ins. You see progress early and often, with room to refine as your vision sharpens.</p>
-            </div>
-          </div>
-          <div class="flex gap-5">
-            <span class="text-wm-accent font-semibold text-2xl leading-none mt-1">04</span>
-            <div>
-              <h3 class="font-semibold text-lg mb-2 font-serif">Launch & Support</h3>
-              <p class="text-gray-500 leading-relaxed">We train your team, document everything, and stay engaged post-launch — because go-live is a beginning, not an end.</p>
-            </div>
-          </div>
+      </div>
+      <div>
+        <p class="text-wm-accent font-semibold text-xs tracking-widest uppercase mb-4">Integrations</p>
+        <h2 class="font-serif font-semibold text-4xl tracking-tight mb-6">Your tools. Fully connected.</h2>
+        <p class="text-gray-500 mb-8">We make your core system the nerve center of your entire operation. Through native connectors, pipelines, and custom API work, your data flows exactly where it needs to go.</p>
+        <ul class="flex flex-col gap-3">
+          <li class="flex items-center gap-3 text-sm text-gray-600"><span class="w-4 h-px bg-wm-accent flex-shrink-0"></span>Bi-directional sync with CRMs, ERPs & finance tools</li>
+          <li class="flex items-center gap-3 text-sm text-gray-600"><span class="w-4 h-px bg-wm-accent flex-shrink-0"></span>Native platform pipelines & automation</li>
+          <li class="flex items-center gap-3 text-sm text-gray-600"><span class="w-4 h-px bg-wm-accent flex-shrink-0"></span>Custom REST & webhook integrations</li>
+          <li class="flex items-center gap-3 text-sm text-gray-600"><span class="w-4 h-px bg-wm-accent flex-shrink-0"></span>AI model connections (OpenAI, Claude, and more)</li>
+          <li class="flex items-center gap-3 text-sm text-gray-600"><span class="w-4 h-px bg-wm-accent flex-shrink-0"></span>Real-time event triggers & automated workflows</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="bg-gray-50 border-b border-black/[0.08]">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-24">
+      <p class="text-wm-accent font-semibold text-xs tracking-widest uppercase mb-4">How we work</p>
+      <h2 class="font-serif font-semibold text-4xl tracking-tight mb-16 max-w-lg">From discovery to deployment, without friction.</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+        <div>
+          <p class="font-serif font-semibold text-wm-accent text-2xl mb-4">01</p>
+          <h3 class="font-serif font-semibold text-lg mb-2">Discovery</h3>
+          <p class="text-gray-500 text-sm">We map your systems, workflows, and pain points to understand what you actually need — not just what you asked for.</p>
+        </div>
+        <div>
+          <p class="font-serif font-semibold text-wm-accent text-2xl mb-4">02</p>
+          <h3 class="font-serif font-semibold text-lg mb-2">Architecture</h3>
+          <p class="text-gray-500 text-sm">We design the data model, integration map, and automation logic before building a single thing — so it's right the first time.</p>
+        </div>
+        <div>
+          <p class="font-serif font-semibold text-wm-accent text-2xl mb-4">03</p>
+          <h3 class="font-serif font-semibold text-lg mb-2">Build & Integrate</h3>
+          <p class="text-gray-500 text-sm">Agile delivery with regular check-ins. You see progress early and often, with room to refine as your vision sharpens.</p>
+        </div>
+        <div>
+          <p class="font-serif font-semibold text-wm-accent text-2xl mb-4">04</p>
+          <h3 class="font-serif font-semibold text-lg mb-2">Launch & Support</h3>
+          <p class="text-gray-500 text-sm">We train your team, document everything, and stay engaged post-launch — because go-live is a beginning, not an end.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="border-t border-black/[0.08] bg-gray-50">
-    <div class="max-w-5xl mx-auto px-8 py-28">
-      <p class="text-wm-accent font-semibold text-sm tracking-widest uppercase mb-4">Contact</p>
-      <h2 class="text-4xl font-semibold tracking-tight mb-4 font-serif">Let's talk.</h2>
-      <p class="text-gray-500 text-lg mb-3">Tell us what you're working on.</p>
-      <a href="mailto:hello@whitemattersystems.com" class="inline-block text-wm-accent font-medium mb-10 hover:opacity-75 transition-opacity">hello@whitemattersystems.com</a>
-      <form action="https://formspree.io/f/mjgpygqv" method="POST" class="max-w-lg flex flex-col gap-4">
-        <input type="text" name="name" placeholder="Name" class="border border-gray-200 bg-white rounded-md px-5 py-3.5 text-base outline-none focus:border-wm-accent transition-colors" />
-        <input type="email" name="email" placeholder="Email" class="border border-gray-200 bg-white rounded-md px-5 py-3.5 text-base outline-none focus:border-wm-accent transition-colors" />
-        <textarea name="message" placeholder="Message" rows="4" class="border border-gray-200 bg-white rounded-md px-5 py-3.5 text-base outline-none focus:border-wm-accent transition-colors resize-none"></textarea>
-        <button type="submit" class="bg-wm-accent text-wm-dark font-semibold text-base px-6 py-3.5 rounded-md hover:opacity-85 transition-opacity self-start font-serif">Send message</button>
-      </form>
+  <section id="contact" class="border-b border-black/[0.08]">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-24 text-center">
+      <p class="text-wm-accent font-semibold text-xs tracking-widest uppercase mb-6">Get started</p>
+      <h2 class="font-serif font-semibold text-4xl md:text-5xl tracking-tight mb-6">Ready to connect your systems?</h2>
+      <p class="text-gray-500 text-lg max-w-md mx-auto mb-10">Whether you're starting from scratch or inheriting a complex build, we're ready to help.</p>
+      <a href="mailto:hello@whitemattersystems.com" class="inline-block bg-wm-accent text-wm-dark font-semibold font-serif px-8 py-4 rounded-md hover:opacity-85 transition-opacity">hello@whitemattersystems.com</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="border-t border-black/[0.08]">
-    <div class="max-w-5xl mx-auto px-8 py-8 flex items-center justify-between">
-      <span class="text-gray-400 text-sm">© 2026 White Matter Group LLC. All rights reserved.</span>
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <span class="font-serif font-medium text-gray-700">White Matter Systems</span>
+      <span>Smarter integrations. Sharper results.</span>
+      <span>© 2026 White Matter Group LLC. All rights reserved.</span>
     </div>
   </footer>
 
+
+<script>
+  const canvas = document.getElementById('neural-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', () => { resize(); init(); });
+
+  function init() {
+    nodes = [];
+    const count = Math.floor((W * H) / 20000);
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        r: Math.random() * 3 + 1.5
+      });
+    }
+  }
+  init();
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    });
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 160) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(255,255,255,${(1 - dist / 160) * 0.5})`;
+          ctx.lineWidth = 2;
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.6)';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+</script>
 </body>
 </html>
